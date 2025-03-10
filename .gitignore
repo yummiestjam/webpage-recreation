@@ -1,4 +1,132 @@
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+
+Skip to content
+All gists
+Back to GitHub
+Sign in
+Sign up
+
+Instantly share code, notes, and snippets.
+@michaelwhyte
+michaelwhyte/.gitignore
+Last active November 12, 2024 22:54
+
+Code~~
+Revisions 2
+Stars 7
+Forks 2
+Clone this repository at &lt;script src=&quot;https://gist.github.com/michaelwhyte/341f3c841e6bb613f5d0974256d6b615.js&quot;&gt;&lt;/script&gt;
+Starter Git ignore file for basic web development...
+.gitignore
+# OS generated files #
+######################
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+# Saas cache #
+##############
+
+.sass-cache
+
+
+# Sublime Text 2 or 3 specific files #
+#################################
+
+*.sublime-project
+*.sublime-workspace
+
+
+# Other text editor folders or files #
+######################################
+
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.komodoproject
+.komodotools
+_notes
+dwsync.xml
+
+
+# Ignore Node Modules #
+#######################
+
+node_modules/
+
+
+# Folders to Ignore #
+#####################
+
+.tmp/
+
+
+# Ignore compiled CSS from repository
+
+styles/
+
+
+# Misc files to ignore #
+########################
+
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+to join this conversation on GitHub. Already have an account? Sign in to comment
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact
+
