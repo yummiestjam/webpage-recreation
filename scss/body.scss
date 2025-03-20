@@ -1,0 +1,32 @@
+// typography
+
+
+// document
+html {
+    
+}
+
+// header structure
+
+// body structure
+
+.main-section {
+    height: 100vh;
+    background-color: grey;
+}
+
+.scroll-section {
+    height: 100vh;
+    background-color: lightblue;
+    // position: sticky;
+    top: 0;
+}
+
+.box {
+    width: 10rem;
+    height: 10rem;
+    background-color: red;
+    position: fixed;
+    top: 50%;
+    left: 0%;
+}
