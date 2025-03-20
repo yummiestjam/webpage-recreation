@@ -10,6 +10,10 @@ html {
 
 // body structure
 
+.features {
+    height: 200vh;
+}
+
 .main-section {
     height: 100vh;
     background-color: grey;
@@ -18,7 +22,7 @@ html {
 .scroll-section {
     height: 100vh;
     background-color: lightblue;
-    // position: sticky;
+    position: sticky;
     top: 0;
 }
 

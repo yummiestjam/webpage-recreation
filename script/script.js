@@ -1,5 +1,6 @@
 const sections = document.querySelectorAll(".scroll-section");
-const box = document.querySelector(".box");
+const sec1 = document.getElementById("scroll-1");
+const sec2 = document.getElementById("scroll-2");
 
 // heres the plan:
 /*
@@ -7,33 +8,36 @@ const box = document.querySelector(".box");
     - for each section, have a function that handles animations based on progress
 */
 
-
 window.addEventListener("scroll", function() {
-    sections.forEach((section) => {
-        // define start and end of animations using position and height of section
-        const start = section.offsetTop;
-        const end = start + section.offsetHeight;
-        // console.log(start);
-    
-        // track progress within the section, and normalize it to 0 to 1. i don't fully understand the formula but it works
-        let progress = (window.scrollY - start)/(end - start);
-        console.log("scrollY: " + window.scrollY);
-        console.log("start: " + start);
-        console.log("progress: " + progress);
-        // clamp progress between 0 and 1
-        progress = Math.max(0, Math.min(1, progress));
+    handleAnimation(sec1)
+    // this approach isnt working; need to measure TOTAL scroll progress and apply breakpoints to it for each animation i think
 
-        // disable sticky behavior once animation is done
-        // if (progress < 1) {
-        //     section.style.position = "sticky";
-        //     section.style.top = "0";
-        // } else {
-        //     console.log
-        //     section.style.position = "fixed";
-        //     section.style.top = "-10000";
-        // }
-        
-        // test box
-        box.style.transform = `translateX(${progress * 100}vw)`;
-    })
+    // let totalProgress = 0;
+    // console.log("total prog: " + totalProgress);
+    // if (totalProgress <= 1) {
+    //     totalProgress += handleAnimation(sec1);
+    // } else if (totalProgress <= 2) {
+    //     totalProgress += handleAnimation(sec2);
+    // }
 })
+
+function handleAnimation(section) {
+    const start = section.offsetTop;
+    const end = start + section.offsetHeight;
+
+    // track progress: scale scrollY by height of section
+    // apparently the -1 is necessary by testing
+    let progress = window.scrollY / section.offsetHeight - 1;
+
+    // clamp between 0 and 2
+    progress = Math.max(0, Math.min(1, progress));
+
+    // console.log("scrollY: " + window.scrollY);
+    // console.log("start: " + start);
+    console.log("progress: " + progress);
+
+    // Move the box based on scroll progress
+    section.children[0].style.transform = `translateX(${progress * 100}vw)`;
+
+    // return progress;
+}
