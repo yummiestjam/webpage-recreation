@@ -24,23 +24,23 @@ window.addEventListener("scroll", function() {
     // clamp between 0 and 1
     // progress = Math.max(0, Math.min(1, progress));
     console.log("progress: " + progress);
-    console.log("progress % 2: " + (progress % 2));
+    // console.log("progress % 2: " + (progress % 2));
 
-    if (progress <= 1) {
+    if (progress <= 2) {
         handleAnimation(sec1);
-    } else if (progress <= 2) {
-        handleAnimation(sec2);
-    } else if (progress <= 3) {
-        handleAnimation(sec3);
     } else if (progress <= 4) {
-        handleAnimation(sec4);
-    } else if (progress <= 5) {
-        handleAnimation(sec5);
+        handleAnimation(sec2);
     } else if (progress <= 6) {
-        handleAnimation(sec6);
-    } else if (progress <= 7) {
-        handleAnimation(sec7);
+        handleAnimation(sec3);
     } else if (progress <= 8) {
+        handleAnimation(sec4);
+    } else if (progress <= 10) {
+        handleAnimation(sec5);
+    } else if (progress <= 12) {
+        handleAnimation(sec6);
+    } else if (progress <= 14) {
+        handleAnimation(sec7);
+    } else if (progress <= 16) {
         handleAnimation(sec8);
     }
 })
