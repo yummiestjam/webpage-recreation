@@ -162,8 +162,6 @@ html {
     }
 }
 
-// SECTION: feature 2
-
 .underline {
     height: 1.25rem;
     width: 0.15rem;
@@ -173,20 +171,26 @@ html {
 
 @media (min-width: 48em) {
     #feature-1 {
+
         .feature-bar {
             flex-direction: row;
+            flex-wrap: wrap;
+            width: fit-content;
             width: 100%;
             .inbox-item {
                 flex-direction: column;
             }
-            .underline {
-                height: 0.15rem;
-                width: 100%;
-                margin-right: 0;
-            }
+        }
+
+        .underline {
+            height: 0.15rem;
+            width: 100%;
+            margin-right: 0;
         }
     }
 }
+
+// SECTION: feature 2
 
 #feature-2 {
     .feature-bar {
@@ -224,8 +228,113 @@ html {
 
 #feature-3 {
 
+    .feature-bar {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .shortcuts-bar {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .shortcuts-item {
+        margin: 0 0.75rem;
+    }
+
+    .shortcuts-text {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+        width: fit-content;
+    }
+
+    .underline {
+        margin-bottom: 1rem;
+    }
+
+    .keyboard {
+        background-color: $color-shade1;
+        width: 38.5rem;
+        height: 16rem;
+        border-radius: 1rem;
+        
+        padding: 0.25rem;
+        margin: 0 auto;
+        
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+
+        .row {
+            height: 2.65rem;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+        }
+
+        .key {
+            background-color: $color-shade-1a;
+            margin: 0.2rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 0.5rem;
+        }
+
+        .key-top-left {
+            border-radius: 1rem 0.5rem 0.5rem 0.5rem;
+            width: 3.5rem;
+        }
+
+        .key-top-right {
+            border-radius: 0.5rem 1rem 0.5rem 0.5rem;
+        }
+
+        .key-bottom-right {
+            border-radius: 0.5rem 0.5rem 1rem 0.5rem;
+        }
+
+        .key-bottom-left {
+            border-radius: 0.5rem 0.5rem 0.5rem 1rem;
+        }
+
+        .key-rect-1 {
+            width: 3.5rem;
+        }
+
+        .key-rect-2 {
+            width: 4.2rem;
+        }
+
+        .key-rect-3 {
+            width: 5.5rem;
+        }
+
+        .key-rect-4 {
+            width: 3rem;
+        }
+
+        .key-space {
+            width: 12.5rem;
+        }
+
+        .key-half {
+            height: 1rem;
+        }
+    }
 }
 
+@media (min-width: 48em) {
+    #feature-3 {
+        .underline {
+            height: 0.15rem;
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+}
 // SECTION: feature 4
 
 #feature-4 {
@@ -417,7 +526,20 @@ $search-height: 70%;
         }
 
         #rect2 {
+            left: 11rem;
             width: 12.5rem;
+            height: 14rem;
+        }
+
+        #rect3 {
+            width: 13rem;
+            height: 13rem;
+            top: -10.5rem;
+            left: -9rem;
+        }
+
+        #rect4 {
+            left: 20.5rem;
         }
     }
 }
@@ -495,6 +617,15 @@ $search-height: 70%;
     }
 }
 
+@media (min-width: 48em) {
+    #feature-7 {
+        .feature-bar {
+            width: 26.25rem;
+        }
+    }
+}
+
+
 // SECTION: feature 8
 
 #feature-8 {
@@ -519,6 +650,16 @@ $search-height: 70%;
     #cell3 {background-color: $color-shade3;}
     #cell4 {background-color: $color-shade4;}
     #cell5 {background-color: $color-shade5;}
+}
+
+@media (min-width:48em) {
+    #feature-8 {
+        .feature-bar {
+            width: 34rem;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
 }
 
 .box {
