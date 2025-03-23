@@ -42,7 +42,7 @@ html {
 }
 
 .pc-only {
-    display: none;
+    display: none !important;
 }   
 
 .mobile-only {
@@ -227,9 +227,13 @@ html {
 // SECTION: feature 3
 
 #feature-3 {
+    .feature-bg {
+        overflow: hidden;
+    }
 
     .feature-bar {
         height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -238,7 +242,7 @@ html {
     .shortcuts-bar {
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: left;
     }
 
     .shortcuts-item {
@@ -249,18 +253,25 @@ html {
         margin-bottom: 0.25rem;
         font-size: 1rem;
         width: fit-content;
+
+        text-wrap: nowrap;
     }
 
     .underline {
-        margin-bottom: 1rem;
+        height: 0.15rem;
+        width: 100%;
+        margin: 0 0 1rem 0;
     }
 
     .keyboard {
+        position: relative;
+        left: -8rem;
+
         background-color: $color-shade1;
         width: 38.5rem;
         height: 16rem;
         border-radius: 1rem;
-        
+
         padding: 0.25rem;
         margin: 0 auto;
         
@@ -328,11 +339,14 @@ html {
 
 @media (min-width: 48em) {
     #feature-3 {
-        .underline {
-            height: 0.15rem;
-            width: 100%;
-            margin-right: 0;
+        .shortcuts-bar {
+            justify-content: center;
         }
+    }
+
+    .keyboard {
+        position: static !important;
+        left: 0;
     }
 }
 // SECTION: feature 4
