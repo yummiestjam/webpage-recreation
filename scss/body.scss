@@ -5,6 +5,12 @@ $text-gray: #7c7d77;
 $text-header: #464646;
 $text-black: #181816;
 
+$color-shade1: #E9E9E9;
+$color-shade2: #B7B7B7;
+$color-shade3: #878787;
+$color-shade4: #555555;
+$color-shade5: #181818;
+
 // SECTION: typography
 
 h3 {
@@ -217,14 +223,217 @@ main {
 // SECTION: feature 5
 
 #feature-5 {
+    .feature-bg {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 
+    .feature-bar {
+        width: 80%;
+        justify-content: space-between;
+    }
+
+    .design-text {
+        display: flex;
+        justify-content: space-between;
+        
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .design-circles {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .design-circle {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: #181816;
+    }
+
+    #circle1 {background-color: $color-shade1;}
+    #circle2 {background-color: $color-shade2;}
+    #circle3 {background-color: $color-shade3;}
+    #circle4 {background-color: $color-shade4;}
+    #circle5 {background-color: $color-shade5;}
 }
 
 // SECTION: feature 6
 
+$search-width: 80%;
+$search-height: 70%;
+
+#feature-6 {
+    .feature-bg {
+        display: flex;
+    }
+
+    .feature-bar {
+        position: relative;
+        overflow: hidden;
+
+        background-color: #181816;
+        border-radius: 5rem;
+        width: $search-width;
+        height: $search-height;
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            text-align: center;
+            color: $color-bg;
+        }
+    }
+
+    .search-rect {
+        border-radius: 0.5rem;
+        position: absolute;
+    }
+
+    #rect1 {
+        bottom: -4rem;
+        right: -3rem;
+        background-color: #ababab;
+        width: 12rem;
+        height: 12rem;
+        z-index: 5;
+    }
+    #rect2 {
+        top: 3rem;
+        left: 2.5rem;
+        background-color: #d8d8d8;
+        width: 6rem;
+        height: 12rem;
+        z-index: 4;
+    }
+    #rect3 {
+        top: -3.5rem;
+        left: -4rem;
+        background-color: #c3c3c3;
+        width: 10rem;
+        height: 10rem;
+        z-index: 3;
+    }
+    #rect4 {
+        top: -3rem;
+        left: -2rem;
+        background-color: #4b4b4b;
+        width: 13rem;
+        height: 12rem;
+        z-index: 2;
+    }
+    #rect5 {
+        bottom: -4.5rem;
+        left: -0.5rem;
+        background-color: #7b7b7b;
+        width: 13rem;
+        height: 14rem;
+        z-index: 1;
+    }
+}
+
 // SECTION: feature 7
 
+#feature-7 {
+
+    .feature-bar {
+        margin-top: 3rem;
+        width: 80%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .ux-checkbox {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 20%;
+        background-color: #181816;
+    }
+
+    .ux-item {
+        display: flex;
+        flex-wrap: nowrap;
+        place-items: center;
+        gap: 1rem;
+    }
+
+    .ux-text {
+        margin: 0;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+
+        height: 1rem;
+        width: 2rem;
+        font-size: 0.8rem;
+
+        flex: 1 0 10rem;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        color: #181816;
+        background-color: $color-shade1;
+    }
+
+    .ux-selection {
+        margin: 2rem 0;
+        padding: 0.5rem;
+        align-self: center;
+        border: 0.1rem solid $color-shade1;
+        width: 90%;
+        border-radius: 0.5rem;
+
+        display: flex;
+        place-items: center;
+        justify-content: space-between;
+
+        p {
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+            color: #181816;
+        }
+    }
+
+    .ux-icon {
+        margin: 0.2rem;
+        border: 0.1rem solid $color-shade1;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 20%;
+        background-color: $color-bg;
+    }
+}
+
 // SECTION: feature 8
+
+#feature-8 {
+    .security-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 2rem);
+        grid-template-rows: repeat(4, 2rem);
+        place-items: center;
+        align-self: center;
+    }
+
+    .security-cell {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 20%;
+        background-color: $color-bg;
+    }
+
+    #cell0 {background-color: $color-bg;}
+    #cell1 {background-color: $color-shade1;}
+    #cell2 {background-color: $color-shade2;}
+    #cell3 {background-color: $color-shade3;}
+    #cell4 {background-color: $color-shade4;}
+    #cell5 {background-color: $color-shade5;}
+}
 
 .box {
     display: none;
