@@ -34,6 +34,8 @@ window.addEventListener("scroll", function() {
 
     handleDesignAnimation();
 
+    handleSearchAnimation();
+
     // ----------------------------------------------------------------------
 
     lastProgress = progress;
@@ -183,6 +185,43 @@ function handleDesignAnimation() {
             p.style.color = "#000000";
         })
     }
+}
+
+function handleSearchAnimation() {
+    const rects = document.querySelectorAll("search-rect");
+    const rect1 = document.getElementById("rect1");
+    const rect2 = document.getElementById("rect2");
+    const rect3 = document.getElementById("rect3");
+    const rect4 = document.getElementById("rect4");
+    const rect5 = document.getElementById("rect5");
+
+    let searchProgress = 0;
+    let numSteps = 5;
+
+    if (progress > 10) {
+        searchProgress = Math.ceil(scaledProgress * numSteps);
+        searchProgress = Math.min(Math.max(searchProgress, 1), numSteps) - 1;
+        // console.log(searchProgress);
+
+        if (searchProgress === 0) {
+            rect3.classList.add("move-rect3");
+        } else if (searchProgress === 1) {
+            rect1.classList.add("move-rect1");
+        } else if (searchProgress === 2) {
+            rect5.classList.add("move-rect5");
+        } else if (searchProgress === 3) {
+            rect4.classList.add("move-rect4");
+        } else if (searchProgress === 4) {
+            rect2.classList.add("move-rect2");
+        }
+    } else {
+        // rects.forEach(rect => {
+        //     rect.classList.remove("move-rect1", "move-rect2", "move-rect3", "move-rect4", "move-rect5");
+        // });
+        // rect.style.transition = "transform 0.3s ease";
+        // rect.style.transform = "none";
+    }
+        
 }
 
 // initial test animation / figuring out how to scale animation with the progress variable
