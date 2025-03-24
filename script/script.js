@@ -8,52 +8,92 @@ const sec6 = document.getElementById("scroll-6");
 const sec7 = document.getElementById("scroll-7");
 const sec8 = document.getElementById("scroll-8");
 
-// heres the plan:
-/*
-    - make a single scroll event listener, track scroll progress, scale it 0 to 1
-    - for each section, have a function that handles animations based on progress
-*/
+// animated elements
 
-let progress;
+const inboxLine = document.querySelector(".inbox-1 .underline");
+const speedLines = document.querySelectorAll(".speed-line");
+
+let progress = window.scrollY / sec1.offsetHeight - 1;;
+let lastProgress = progress;
 
 window.addEventListener("scroll", function() {
 
-    // track progress: scale scrollY by height of section
-    // apparently the -1 is necessary by testing
+    // track progress: scale scrollY by height of a section
     progress = window.scrollY / sec1.offsetHeight - 1;
-    // clamp between 0 and 1
+    // scale it so each section starts at 0
+    scaledProgress = progress % 2;
+
     // progress = Math.max(0, Math.min(1, progress));
-    console.log("progress: " + progress);
+    // console.log("progress: " + progress);
     // console.log("progress % 2: " + (progress % 2));
 
-    if (progress <= 2) {
-        handleAnimation(sec1);
-    } else if (progress <= 4) {
-        handleAnimation(sec2);
-    } else if (progress <= 6) {
-        handleAnimation(sec3);
-    } else if (progress <= 8) {
-        handleAnimation(sec4);
-    } else if (progress <= 10) {
-        handleAnimation(sec5);
-    } else if (progress <= 12) {
-        handleAnimation(sec6);
-    } else if (progress <= 14) {
-        handleAnimation(sec7);
-    } else if (progress <= 16) {
-        handleAnimation(sec8);
-    }
+    handleInboxAnimation();
+
+    handleSpeedAnimation();
+
+    // ----------------------------------------------------------------------
+
+    lastProgress = progress;
 })
 
-// turn this into a convert-progress
-function handleAnimation(section) {
-    const start = section.offsetTop;
-    const end = start + section.offsetHeight;
+function handleInboxAnimation() {
 
-    // console.log("scrollY: " + window.scrollY);
-    // console.log("start: " + start);
-    // console.log("progress: " + progress);
+    inboxLine.classList.add("inbox-animation");
 
-    // Move the box based on scroll progress
-    section.children[0].style.transform = `translateX(${(progress % 2) * 100}vw)`;
+    // convert progress to a number 1 to 5, clamp it
+    let inboxLineProgress = Math.ceil(scaledProgress * 5);
+    inboxLineProgress = Math.min(Math.max(inboxLineProgress, 1), 5);
+
+    // use converted number to add the class for each position
+    inboxLine.classList.remove("inbox-line-1", "inbox-line-2", "inbox-line-3", "inbox-line-4", "inbox-line-5");
+    inboxLine.classList.add(`inbox-line-${inboxLineProgress}`);
+
 }
+
+function handleSpeedAnimation() {
+
+    let speedProgress = 0;
+
+    // if we're focused on the right section, start calculating
+    if (progress > 2) {
+        // convert progress to a number 1 to 11, clamp it
+        speedProgress = Math.ceil(scaledProgress * 11);
+        // -1 so it can be used as an array index
+        speedProgress = Math.min(Math.max(speedProgress, 1), 11) - 1;
+    }
+
+    console.log(speedProgress - 1);
+
+    speedLines.forEach(line => {
+        line.classList.remove("shade1", "shade2", "shade3", "shade4", "shade5" );
+    });
+
+    addClassIfObjectExists(speedLines[speedProgress - 4], "shade1");
+    addClassIfObjectExists(speedLines[speedProgress - 3], "shade2");
+    addClassIfObjectExists(speedLines[speedProgress - 2], "shade3");
+    addClassIfObjectExists(speedLines[speedProgress - 1], "shade4");
+    addClassIfObjectExists(speedLines[speedProgress], "shade5");
+    addClassIfObjectExists(speedLines[speedProgress + 1], "shade4");
+    addClassIfObjectExists(speedLines[speedProgress + 2], "shade3");
+    addClassIfObjectExists(speedLines[speedProgress + 3], "shade2");
+    addClassIfObjectExists(speedLines[speedProgress + 4], "shade1");
+}
+
+function addClassIfObjectExists(object, className) {
+    if (object) {
+        object.classList.add(className);
+    }
+}
+
+// initial test animation / figuring out how to scale animation with the progress variable
+// function handleAnimation(section) {
+//     const start = section.offsetTop;
+//     const end = start + section.offsetHeight;
+
+//     // console.log("scrollY: " + window.scrollY);
+//     // console.log("start: " + start);
+//     // console.log("progress: " + progress);
+
+//     // Move the box based on scroll progress
+//     section.children[0].style.transform = `translateX(${(progress % 2) * 100}vw)`;
+// }

@@ -141,6 +141,7 @@ html {
             padding: 0.25rem;
 
             .inbox-text {
+                margin-left: 1rem;
                 display: flex;
                 p {
                     margin: 0 0.25rem .5rem 0;
@@ -182,12 +183,15 @@ html {
             }
         }
 
-        .underline {
-            height: 0.15rem;
-            width: 100%;
-            margin-right: 0;
+        .inbox-item {
+            .underline {
+                height: 0.15rem;
+                width: 5rem;
+                margin-right: 0;
+                bottom: 3rem;
+            }
         }
-    }
+        }
 }
 
 // SECTION: feature 2
