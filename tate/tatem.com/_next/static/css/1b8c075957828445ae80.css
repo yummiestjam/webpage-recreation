@@ -1,0 +1,1 @@
+.blink{animation:blink .8s ease-in-out infinite}@keyframes blink{0%{opacity:0}50%{opacity:1}to{opacity:0}}

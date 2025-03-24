@@ -1,0 +1,1 @@
+.carousel-left{animation:banner-left 80s linear infinite}.carousel-left:hover{animation-play-state:paused}.carousel-right{animation:banner-right 80s linear infinite}.carousel-right:hover{animation-play-state:paused}@keyframes banner-left{0%{transform:translateX(0)}to{transform:translateX(-100vw)}}@keyframes banner-right{0%{transform:translateX(0)}to{transform:translateX(100vw)}}
