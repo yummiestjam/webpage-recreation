@@ -42,7 +42,7 @@ html {
 }
 
 .pc-only {
-    display: none !important;
+    display: none;
 }   
 
 .mobile-only {
@@ -188,10 +188,10 @@ html {
                 height: 0.15rem;
                 width: 5rem;
                 margin-right: 0;
-                bottom: 3rem;
+                bottom: 35rem;
             }
         }
-        }
+    }
 }
 
 // SECTION: feature 2
@@ -361,11 +361,29 @@ html {
     }
 
     .editor-display {
-        padding: 1rem;
+        padding: 1rem 1rem 0 1rem;
+        margin: 1.5rem;
 
-        p {
-            width: fit-content;
+        
+        #try-tatem {
+            color: #ff6e40;
+            color: #fff;
+            padding: 0.5rem;
+            margin: 0;
             font-size: 1rem;
+            width: 100%;
+            text-wrap: nowrap;
+        }
+
+        display: flex;
+        place-items: center;
+
+        .dot {
+            display: none;
+            height: 0.25rem;
+            width: 0.25rem;
+            border-radius: 50%;
+            background-color: #181816;
         }
     }
 
@@ -375,13 +393,11 @@ html {
 
         p {
             font-size: 0.9rem;
-            color: $color-bg;
 
             width: 7rem;
 
             padding: 0.5rem;
             margin: 0.25rem;
-            background-color: #181816;
             border-radius: 0.25rem;
         }
     }
@@ -653,7 +669,7 @@ $search-height: 70%;
         grid-template-rows: repeat(4, 2rem);
         place-items: center;
         align-self: center;
-    }
+    } 
 
     .security-cell {
         width: 1.75rem;
@@ -678,6 +694,12 @@ $search-height: 70%;
             justify-content: space-around;
         }
     }
+}
+
+@media (max-width: 48em) {
+    .pc-only {
+        display: none;
+    }   
 }
 
 .box {

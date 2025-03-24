@@ -8,11 +8,6 @@ const sec6 = document.getElementById("scroll-6");
 const sec7 = document.getElementById("scroll-7");
 const sec8 = document.getElementById("scroll-8");
 
-// animated elements
-
-const inboxLine = document.querySelector(".inbox-1 .underline");
-const speedLines = document.querySelectorAll(".speed-line");
-
 let progress = window.scrollY / sec1.offsetHeight - 1;;
 let lastProgress = progress;
 
@@ -24,12 +19,20 @@ window.addEventListener("scroll", function() {
     scaledProgress = progress % 2;
 
     // progress = Math.max(0, Math.min(1, progress));
-    // console.log("progress: " + progress);
-    // console.log("progress % 2: " + (progress % 2));
+    console.log("progress: " + progress);
+    // console.log("scaledProgress " + (scaledProgress));
 
     handleInboxAnimation();
 
     handleSpeedAnimation();
+
+
+
+    handleTextAnimation();
+
+
+
+    handleDesignAnimation();
 
     // ----------------------------------------------------------------------
 
@@ -37,6 +40,8 @@ window.addEventListener("scroll", function() {
 })
 
 function handleInboxAnimation() {
+
+    const inboxLine = document.querySelector(".inbox-1 .underline");
 
     inboxLine.classList.add("inbox-animation");
 
@@ -52,17 +57,23 @@ function handleInboxAnimation() {
 
 function handleSpeedAnimation() {
 
+    const speedLines = document.querySelectorAll(".speed-line");
+
     let speedProgress = 0;
+
+    let numSteps = 11;
+
+    if (window.matchMedia("(min-width: 48em)")) {
+        numSteps = 30;
+    }
 
     // if we're focused on the right section, start calculating
     if (progress > 2) {
         // convert progress to a number 1 to 11, clamp it
-        speedProgress = Math.ceil(scaledProgress * 11);
+        speedProgress = Math.ceil(scaledProgress * numSteps);
         // -1 so it can be used as an array index
-        speedProgress = Math.min(Math.max(speedProgress, 1), 11) - 1;
+        speedProgress = Math.min(Math.max(speedProgress, 1), numSteps) - 1;
     }
-
-    console.log(speedProgress - 1);
 
     speedLines.forEach(line => {
         line.classList.remove("shade1", "shade2", "shade3", "shade4", "shade5" );
@@ -82,6 +93,95 @@ function handleSpeedAnimation() {
 function addClassIfObjectExists(object, className) {
     if (object) {
         object.classList.add(className);
+    }
+}
+
+function handleTextAnimation() {
+    const tryTatem = document.getElementById("try-tatem");
+    const textOptions = document.querySelectorAll(".text-option");
+    const dot = document.querySelector(".dot");
+
+    let textProgress = 0;
+
+    if (progress > 6) {
+        textProgress = Math.ceil(scaledProgress * 4);
+        textProgress = Math.min(Math.max(textProgress, 1), 4) - 1;
+        // console.log(textProgress);
+    }
+
+    textOptions.forEach(option => {
+        option.style.color = "#B7B7B7";
+        option.style.backgroundColor = "#E9E9E9";
+    });
+
+    textOptions[textProgress].style.color = "#ffffff";
+    textOptions[textProgress].style.backgroundColor = "#181818";
+
+    // console.log(textOptions[textProgress].id);
+    switch (textOptions[textProgress].id) {
+        case "orange":
+            tryTatem.style.color = "#ff6e40";
+            tryTatem.style.backgroundColor = "#00000000";
+            dot.style.display = "none";
+            break;
+        case "highlight":
+            tryTatem.style.fontStyle = "normal";
+            tryTatem.style.color = "#181818";
+            tryTatem.style.backgroundColor = "#ffeeab";
+            dot.style.display = "none";
+            break;
+        case "italicize":
+            tryTatem.style.fontStyle = "italic";
+            tryTatem.style.backgroundColor = "#00000000";
+            dot.style.display = "none";
+            break;
+        case "bullet":
+            tryTatem.style.fontStyle = "normal";
+            tryTatem.style.backgroundColor = "#00000000";
+            dot.style.display = "block";
+            break;
+    }
+}
+
+function handleDesignAnimation() {
+
+    const circles = document.querySelectorAll(".design-circle");
+    const bg = document.querySelector("#scroll-5 .feature-bg");
+    const desText = document.querySelectorAll(".design-text p");
+
+    circles.forEach(circle => {
+        circle.style.width = "2rem";
+        circle.style.height = "2rem";
+    });
+
+    if (window.matchMedia("(min-width: 48em)")) {
+        numSteps = 5;
+    }
+
+    let circleProgress = 0;
+
+    if (progress > 8) {
+        circleProgress = Math.ceil(scaledProgress * numSteps);
+        circleProgress = Math.min(Math.max(circleProgress, 1), numSteps) - 1;
+        // console.log(circleProgress);
+    }
+
+    circles[circleProgress].style.width = "2.5rem";
+    circles[circleProgress].style.height = "2.5rem";
+
+    // console.log(bg);
+    bg.classList.remove("shade1", "shade2", "shade3", "shade4", "shade5", )
+    bg.classList.add(`shade${circleProgress}`)
+
+    // console.log(desText);
+    if (circleProgress > (numSteps / 2)) {
+        desText.forEach(p => {
+            p.style.color = "#ffffff";
+        })
+    } else {
+        desText.forEach(p => {
+            p.style.color = "#000000";
+        })
     }
 }
 
