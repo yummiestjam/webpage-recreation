@@ -26,7 +26,7 @@ window.addEventListener("scroll", function() {
 
     handleSpeedAnimation();
 
-
+    handleKeyboardAnimation();
 
     handleTextAnimation();
 
@@ -46,8 +46,6 @@ window.addEventListener("scroll", function() {
 function handleInboxAnimation() {
 
     const inboxLine = document.querySelector(".inbox-1 .underline");
-
-    inboxLine.classList.add("inbox-animation");
 
     // convert progress to a number 1 to 5, clamp it
     let inboxLineProgress = Math.ceil(scaledProgress * 5);
@@ -98,6 +96,67 @@ function addClassIfObjectExists(object, className) {
     if (object) {
         object.classList.add(className);
     }
+}
+
+function handleKeyboardAnimation() {
+    const shortcuts = document.querySelector(".shortcuts-bar");
+    const keyb = document.querySelector(".keyboard");
+
+    const keys = document.querySelectorAll(".key-special");
+    const cmd = document.getElementById("key-cmd");
+    const k = document.getElementById("key-k");
+    const z = document.getElementById("key-z");
+    const s = document.getElementById("key-s");
+    const r = document.getElementById("key-r");
+    const e = document.getElementById("key-e");
+    const c = document.getElementById("key-c");
+    const del = document.getElementById("key-del");
+    // key-on
+
+    let searchProgress = 0;
+    let numSteps = 7;
+
+
+    keys.forEach(key => {
+        if (key.classList.contains("key-on")) {
+            key.classList.remove("key-on");
+        }
+    });
+
+    if (progress > 4) {
+        keyProgress = Math.ceil(scaledProgress * numSteps);
+        keyProgress = Math.min(Math.max(keyProgress, 1), numSteps) - 1;
+        // console.log(keyProgress);
+
+        if (keyProgress >= 0 && keyProgress < 1) {
+            cmd.classList.add("key-on");
+            k.classList.add("key-on");
+            shortcuts.style.transform = `translateX(0rem)`;
+        } else if (keyProgress >= 1 && keyProgress < 2) {
+            cmd.classList.add("key-on");
+            z.classList.add("key-on");
+            shortcuts.style.transform = `translateX(0rem)`;
+        } else if (keyProgress >= 2 && keyProgress < 3) {
+            s.classList.add("key-on");
+            shortcuts.style.transform = `translateX(-10rem)`;
+        } else if (keyProgress >= 3 && keyProgress < 4) {
+            r.classList.add("key-on");
+            shortcuts.style.transform = `translateX(-10rem)`;
+        } else if (keyProgress >= 4 && keyProgress < 5) {
+            e.classList.add("key-on");
+            shortcuts.style.transform = `translateX(-20rem)`;
+        } else if (keyProgress >= 5 && keyProgress < 6) {
+            c.classList.add("key-on");
+            shortcuts.style.transform = `translateX(-20rem)`;
+        } else if (keyProgress >= 6) {
+            cmd.classList.add("key-on");
+            del.classList.add("key-on");
+        }
+    }
+
+    // keyboard movement
+    keyb.classList.remove("keyb-1", "keyb-2", "keyb-3", "keyb-4", "keyb-5", "keyb-6", "keyb-7");
+    keyb.classList.add(`keyb-${keyProgress + 1}`);
 }
 
 function handleTextAnimation() {
