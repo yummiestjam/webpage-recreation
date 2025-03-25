@@ -35,6 +35,8 @@ window.addEventListener("scroll", function() {
     handleDesignAnimation();
 
     handleSearchAnimation();
+    
+    handleUXAnimation()
 
     // ----------------------------------------------------------------------
 
@@ -196,32 +198,104 @@ function handleSearchAnimation() {
     const rect5 = document.getElementById("rect5");
 
     let searchProgress = 0;
-    let numSteps = 5;
+    let numSteps = 6;
 
     if (progress > 10) {
         searchProgress = Math.ceil(scaledProgress * numSteps);
         searchProgress = Math.min(Math.max(searchProgress, 1), numSteps) - 1;
         // console.log(searchProgress);
 
-        if (searchProgress === 0) {
-            rect3.classList.add("move-rect3");
-        } else if (searchProgress === 1) {
-            rect1.classList.add("move-rect1");
-        } else if (searchProgress === 2) {
-            rect5.classList.add("move-rect5");
-        } else if (searchProgress === 3) {
-            rect4.classList.add("move-rect4");
-        } else if (searchProgress === 4) {
-            rect2.classList.add("move-rect2");
-        }
-    } else {
-        // rects.forEach(rect => {
-        //     rect.classList.remove("move-rect1", "move-rect2", "move-rect3", "move-rect4", "move-rect5");
-        // });
-        // rect.style.transition = "transform 0.3s ease";
-        // rect.style.transform = "none";
+        if (searchProgress >= 1) {rect3.classList.add("move-rect3");}
+        else {rect3.classList.remove("move-rect3");}
+
+        if (searchProgress >= 2) {rect1.classList.add("move-rect1");}
+        else {rect1.classList.remove("move-rect1");}
+
+        if (searchProgress >= 3) {rect5.classList.add("move-rect5");}
+        else {rect5.classList.remove("move-rect5");}
+
+        if (searchProgress >= 4) {rect4.classList.add("move-rect4")}
+        else {rect4.classList.remove("move-rect4");}
+
+        if (searchProgress >= 5) {rect2.classList.add("move-rect2");}
+        else {rect2.classList.remove("move-rect2");}
     }
-        
+}
+
+function handleUXAnimation() {
+    const checkboxes = document.querySelectorAll(".ux-checkbox");
+    const uxText = document.querySelectorAll(".ux-text");
+    const selectedOutput = document.querySelector(".ux-selection p");
+
+    let circleProgress = 0;
+    let numSteps = 5;
+
+    uxText.forEach(text => {
+        if (!text.classList.contains("selected")) {
+            text.style.opacity = "50%";
+        }
+    });
+
+    uxText[0].style.opacity = "100%";
+    if (progress > 12) {
+        uxProgress = Math.ceil(scaledProgress * numSteps);
+        uxProgress = Math.min(Math.max(uxProgress, 1), numSteps) - 1;
+        // console.log(uxProgress);
+
+        if (uxText[uxProgress]) {
+            uxText[uxProgress].style.opacity = "100%";
+            uxText[uxProgress].classList.add("selected");
+        }
+
+        if (uxProgress >= 1) {toggleCheckboxes(1, true);}
+        else {
+            toggleCheckboxes(1, false);
+            uxText[1].classList.remove("selected");
+        }
+
+        if (uxProgress >= 2) {toggleCheckboxes(2, true);}
+        else {
+            toggleCheckboxes(2, false);
+            uxText[2].classList.remove("selected");
+        }
+
+        if (uxProgress >= 3) {toggleCheckboxes(3, true);}
+        else {
+            toggleCheckboxes(3, false);
+            uxText[3].classList.remove("selected");
+        }
+    }
+
+    // count selected texts
+
+    let numSelected = 0;
+
+    uxText.forEach(text => {
+        if (text.classList.contains("selected")){
+            numSelected += 1;
+            console.log(numSelected);
+        }
+
+        if (numSelected < 1) {
+            numSelected = 1;
+        }
+    });
+    
+    selectedOutput.innerHTML = `${numSelected} selected`;
+}
+
+function toggleCheckboxes(checkboxIndex, on) {
+    const checkboxes = document.querySelectorAll(".ux-checkbox");
+
+    if (checkboxes[checkboxIndex]) {
+        if (on) {
+            checkboxes[checkboxIndex].classList.remove("ux-checkbox-off");
+            checkboxes[checkboxIndex].classList.add("ux-checkbox-on");
+        } else {
+            checkboxes[checkboxIndex].classList.remove("ux-checkbox-on");
+            checkboxes[checkboxIndex].classList.add("ux-checkbox-off");
+        }
+    }
 }
 
 // initial test animation / figuring out how to scale animation with the progress variable

@@ -497,7 +497,7 @@ $search-height: 70%;
         height: $search-height;
 
         p {
-            margin: 0;
+            margin: 0 auto;
             font-size: 1rem;
             text-align: center;
             color: $color-bg;
@@ -589,11 +589,19 @@ $search-height: 70%;
         gap: 0.5rem;
     }
 
-    .ux-checkbox {
+    .ux-checkbox-on {
         width: 1.5rem;
         height: 1.5rem;
         border-radius: 20%;
         background-color: #181816;
+    }
+
+    .ux-checkbox-off {
+        width: 1.3rem;
+        height: 1.3rem;
+        border-radius: 20%;
+        background-color: $color-product-bg;
+        border: 0.1rem solid $color-shade-2a;
     }
 
     .ux-item {
@@ -698,7 +706,7 @@ $search-height: 70%;
 
 @media (max-width: 48em) {
     .pc-only {
-        display: none;
+        display: none !important;
     }   
 }
 
