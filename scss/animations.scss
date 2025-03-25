@@ -45,6 +45,21 @@ $color-shade5: #181818;
 
 // SECTION: FEATURE 3
 
+.keyboard,
+.shortcuts-bar {
+    transition: transform 0.3s ease;
+}
+
+.keyb-1 {transform: translateX(0);}
+.keyb-2 {transform: translateX(4rem);}
+.keyb-3 {transform: translateX(3rem);}
+.keyb-4 {transform: translateX(0);}
+.keyb-5 {transform: translateX(1rem);}
+.keyb-6 {transform: translateX(0);}
+.keyb-7 {transform: translateX(-1rem);}
+
+// SECTION: FEATURE 4
+
 .text-option {
     color: $color-shade2;
     background-color: $color-shade1;
