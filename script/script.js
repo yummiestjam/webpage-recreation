@@ -123,6 +123,8 @@ function handleKeyboardAnimation() {
         }
     });
 
+    let keyProgress;
+
     if (progress > 4) {
         keyProgress = Math.ceil(scaledProgress * numSteps);
         keyProgress = Math.min(Math.max(keyProgress, 1), numSteps) - 1;
