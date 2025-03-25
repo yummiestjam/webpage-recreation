@@ -1,0 +1,64 @@
+
+
+// SECTION: FEATURE 1
+
+$inbox-step: 2.125rem;
+
+.inbox-1 .underline {
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.inbox-line-1 {transform: translateY(0);}
+.inbox-line-2 {transform: translateY($inbox-step * 1);}
+.inbox-line-3 {transform: translateY($inbox-step * 2);}
+.inbox-line-4 {transform: translateY($inbox-step * 3);}
+.inbox-line-5 {transform: translateY($inbox-step * 4);}
+
+@media (min-width: 48em) {
+    $inbox-step: 6.5rem;
+
+    .inbox-line-1 {transform: translateX(0);}
+    .inbox-line-2 {transform: translateX($inbox-step * 1);}
+    .inbox-line-3 {transform: translateX($inbox-step * 2);}
+    .inbox-line-4 {transform: translateX($inbox-step * 3);}
+    .inbox-line-5 {transform: translateX($inbox-step * 4);}
+}
+
+// SECTION: FEATURE 2
+
+$color-shade1: #E9E9E9;
+$color-shade2: #B7B7B7;
+$color-shade3: #878787;
+$color-shade4: #555555;
+$color-shade5: #181818;
+
+.speed-line {
+    background-color: $color-shade1;
+}
+
+.shade1 {background-color: $color-shade1;}
+.shade2 {background-color: $color-shade2;}
+.shade3 {background-color: $color-shade3;}
+.shade4 {background-color: $color-shade4;}
+.shade5 {background-color: $color-shade5;}
+
+// SECTION: FEATURE 3
+
+.text-option {
+    color: $color-shade2;
+    background-color: $color-shade1;
+}
+
+// SECTION: FEATURE 6
+
+.search-rect {
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+.move-rect1 {transform: translate(5rem, 4.5rem);}
+.move-rect2 {transform: translateY(10rem);}
+.move-rect3 {transform: translate(-10rem, -10rem);}
+.move-rect4 {transform: translateY(-10rem);}
+.move-rect5 {transform: translate(-10rem, 10rem);}
