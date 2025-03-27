@@ -15,12 +15,103 @@
     <link rel="stylesheet" href="styles/footer.css">
     
     <title>Tatem.com Recreation</title>
+
+    <!-- The code below is from the work of Jack. -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <link rel="preload" href="asset/font/1.woff2" as="font" type="font/woff2" />
+    <link rel="preload" as="image" href="asset/image/maskIcon.svg"  />
+    <link rel="preload" as="image" href="asset/image/tatem-text.png"  />
+    <title>Tatem - Experience email at its best</title>
+    <meta name="description" content="Get through your work faster and save hours each week. Time is priceless. Save it with Tatem." />
+    <meta property="og:title" content="Tatem - Experience email at its best" />
+    <meta property="og:description" content="Get through your work faster and save hours each week. Time is priceless. Save it with Tatem." />
+    <meta property="og:url" content="https://tatem.com" />
+    <meta property="og:site_name" content="Tatem" />
+    <meta property="og:image" content="https://tatem.com/meta/Tatem.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tatem - Experience email at its best" />
+    <meta name="twitter:description" content="Get through your work faster and save hours each week. Time is priceless. Save it with Tatem." />
+    <meta name="twitter:image" content="https://tatem.com/meta/Tatem.png" />
+    <link rel="icon" href="asset/image/favicon5e1f.svg" type="image/svg+xml" sizes="any" />
+    <link rel="mask-icon" href=/asset/image/maskIcon.svg" class="invert-svg" color="#386CF4" />
+    <link rel="apple-touch-icon" href="asset/image/apple-touch-icon5e1f.png" sizes="180x180" />
+    <link rel="stylesheet" href="asset/style/hero_style.css">
+  <!-- The code above is from the work of Jack. -->
 </head>
 <body>
     <main>
-        <header>
-    
+
+<!-- The code below is from the work of Jack. -->
+        <header class="header">
+            <div class="top-banner">
+                    <div class="header-content">
+                        <div class="banner-text">
+                            <span class="text-low-opacity">Calling all 10x software engineers, we want </span>
+                            <span class="text-high-opacity">you.</span>
+                            <span class="text-high-opacity">
+                                Apply <a class="link" href="careers/senior-full-stack-software-engineer/10-02-2024.html">here</a>.
+                            </span>
+                        </div>
+                        <button class="close-button" style="color: black;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" stroke="black" stroke-width="0">
+                                <path fill="currentColor" fill-rule="evenodd" d="m8 8.943 4.196 4.195.942-.943L8.943 8l4.195-4.195-.942-.943L8 7.057 3.805 2.862l-.943.943L7.058 8l-4.196 4.195.943.943z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        
+                        
+                    </div>
+            </div>
+            <section class="navigation">
+                <div class="nav-container">
+                    <a class="logo" href="index.html">
+                        <img src="/asset/image/maskIcon.svg" class="logo-icon" alt="Tatem logo icon" height="16" />
+                        <img src="/asset/image/tatem-text.svg" class="logo-text" alt="Tatem logo wordmark" height="16" />
+                    </a>
+                    <article class="nav-links">
+                        <a class="nav-link" href="releases.html">Releases</a>
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                        <a class="nav-link" href="sign-in.html">Sign In</a>
+                        <a class="nav-link" href="join-waitlist.html">Join Waitlist</a>
+                    </article>
+                    <div class="mobile-menu-button">
+                        <button aria-label="mobile menu button">
+                            <div class="line line-top"></div>
+                            <div class="line line-bottom"></div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mobile-marketing-menu" class="mobile-menu">
+                <div class="over"></div>
+                <a class="menu-item" href="releases.html">Releases</a>
+                <a class="menu-item" href="pricing.html">Pricing</a>
+                <a class="menu-item" href="sign-in.html">Sign In</a>
+                <a class="menu-item" href="join-waitlist.html">Join Waitlist</a>
+            </section>
         </header>
+
+        <div class="hero-section">
+            <div class="sec"></div>
+            <div class="hero-modal">
+                <div class="text-content">
+                    <div class="cta-text">JOIN THE WAITLIST</div>
+                    <h1 class="main-heading">Experience email at its best. Make productivity your superpower.</h1>
+                    <h2 class="sub-heading">Get through your work faster and save hours each week. Time is priceless. Save it with Tatem.</h2>
+                </div>
+                <div class="form-container">
+                    <form class="email-form">
+                        <input class="email-input" placeholder="Enter your email...                 Press Enter" />
+                        <div class="error-message" id="error-message">Please enter a valid email address to continue.</div>
+                        <button class="submit-button" type="submit">Join Waitlist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+<!-- The code above is from the work of Jack. -->
+
         <section class="landing-area"></section>
         <section class="features">
             <div class="main-section"></div>
@@ -483,5 +574,6 @@
         </div>
     </footer>
     <script src="script/script.js"></script>
+    <script src="asset/script1.js"></script>
 </body>
 </html>
