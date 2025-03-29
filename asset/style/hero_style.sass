@@ -10,7 +10,7 @@ a
 
 @font-face
   font-family: 'MyFont1'
-  src: url('asset/font/1.woff2') format("woff2")
+  src: url('/landing_page/reli/asset/font/1.woff2') format("woff2")
   font-weight: normal
   font-style: normal
 
@@ -21,7 +21,7 @@ body
 
 .hero-section
   height: 100vh
-  background-image: url('asset/image/monet.jpeg')
+  background-image: url('/landing_page/reli/asset/image/monet.jpeg')
   background-size: cover
   background-position: center
   position: relative
@@ -174,7 +174,16 @@ body
   padding-top: 10px
   z-index: 2
 
-.logo-icon, .logo-text
+.logo-icon
+  transition: transform 0.5s ease-in-out
+
+  &:hover
+    transform: rotate(360deg)
+
+  height: 16px
+  filter: invert(1)
+
+.logo-text
   height: 16px
   filter: invert(1)
 
